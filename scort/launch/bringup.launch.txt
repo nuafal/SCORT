@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<launch>
+
+<include file="$(find scort)/launch/base/arduino.launch" />
+
+<include file="$(find scort)/launch/base/lidar.launch" />
+
+<!-- <include file="$(find scort)/launch/base/imu.launch" /> -->
+
+<include file="$(find scort)/launch/base/scan_matcher.launch" />
+
+<include file="$(find scort)/launch/base/laserfilter.launch" />
+
+<include file="$(find scort)/launch/base/odom.launch" />
+
+<include file="$(find scort)/launch/base/robot_localization.launch" />
+
+<!-- <include file="$(find scort)/launch/base/ekf_localization.launch" /> -->
+
+<node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop" output="screen"/>
+
+</launch>

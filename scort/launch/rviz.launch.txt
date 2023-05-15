@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+
+<launch>
+
+	<arg name="rvizconfig" default="navigation/scort_navigation"/>
+
+	<node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find scort)/rviz/$(arg rvizconfig).rviz" />
+
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop" output="screen"/>
+
+<!-- 	<node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" /> -->
+
+</launch>
