@@ -7,3 +7,6 @@ How to start?
 2. git clone to the ~/catkin_ws/src. (git clone https://github.com/nuafal/SCORT.git)
 3. cd ~/catkin_ws
 4. catkin_make
+
+
+*Take note: I used 3iRobotcs-Delta2A LiDAR, this is the github repo => (https://github.com/biomchen/3irobotics-delta2a-sdk.git)
