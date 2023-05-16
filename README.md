@@ -9,4 +9,4 @@ How to start?
 4. catkin_make
 
 
-*Take note: I used 3iRobotcs-Delta2A LiDAR, this is the github repo => (https://github.com/biomchen/3irobotics-delta2a-sdk.git)
+*Take note: I used 3iRobotcs-Delta2A LiDAR, this is the github repo => (https://github.com/biomchen/3irobotics-delta2a-sdk.git)*
