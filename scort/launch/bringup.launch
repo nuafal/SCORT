@@ -3,13 +3,15 @@
 
 <include file="$(find scort)/launch/base/arduino.launch" />
 
-<include file="$(find scort)/launch/base/lidar.launch" />
+<include file="$(find scort)/launch/base/delta2a_lidar.launch" />
+
+<include file="$(find scort)/launch/base/view_delta2a_lidar.launch" />
 
 <!-- <include file="$(find scort)/launch/base/imu.launch" /> -->
 
-<include file="$(find scort)/launch/base/scan_matcher.launch" />
+<!--<include file="$(find scort)/launch/base/scan_matcher.launch" />-->
 
-<include file="$(find scort)/launch/base/laserfilter.launch" />
+<!--<include file="$(find scort)/launch/base/laserfilter.launch" /> -->
 
 <include file="$(find scort)/launch/base/odom.launch" />
 
