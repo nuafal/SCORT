@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="rover">
+    
+<link name="base_footprint"/>    
+    
+<link name="base">
+    <inertial>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <mass value="1.0"/>
+        <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial>
+    <visual name="">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+            <box size="0.7 0.7 0.1"/>
+        </geometry>
+        <material name="">
+            <color rgba="0.0 0.6 1.0 1.0"/>
+            <texture filename=""/>
+        </material>
+    </visual>
+    <collision>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+            <box size="0.0 0.0 0.0"/>
+        </geometry>
+    </collision>
+</link>
+<joint name="base_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.135" rpy="0.0 0.0 0.0"/>
+        <parent link="base_footprint"/>
+        <child link="base"/>
+        <axis xyz="0.0 0.0 0.0"/>
+</joint>
+
+    <!--Wheels-->
+    
+<xacro:macro name="tyre" params="name x y p">
+
+    <link name="Wheel_$(name)_link">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.0"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="0.1" length="0.1"/>
+            </geometry>
+            <material name="">
+                <color rgba="0.25 0.5 0.7 1.0"/>
+                <texture filename=""/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="0.0" length="0.0"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="$(name)_wheel_joint" type="continuous">
+        <origin xyz="${x} ${y} 0.0" rpy="1.57 1.5708 ${p}"/>
+        <parent link="base"/>
+        <child link="Wheel_$(name)_link"/>
+        <axis xyz="0.0 0.0 1.0"/>
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+    </joint>
+
+</xacro:macro>
+
+<xacro:tyre name = "rear_left" x="0.3" y="-0.40" p="0.785398"/>
+<xacro:tyre name = "front_left" x="-0.3" y="-0.40" p=" -0.785398"/>
+<xacro:tyre name = "front_right" x="-0.3" y="-0.40" p=" -0.785398"/>
+<xacro:tyre name = "rear_right" x="0.3" y="0.40" p=" 0.785398"/>
+
+</robot>
