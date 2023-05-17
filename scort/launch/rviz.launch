@@ -1,12 +1,17 @@
 <?xml version="1.0" ?>
 
 <launch>
+	<param name="robot_description" command="$(find scort) '$(find scort)/urdf/rover.urdf.xacro'"/>
+        <arg name="rviz_config_file" default="$(find scort)/config/robot.rviz"/>
+    
+        <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
+        <node pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" name="joint_state_publisher_gui"/>
 
 	<arg name="rvizconfig" default="navigation/scort_navigation"/>
 
 	<node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find scort)/rviz/$(arg rvizconfig).rviz" />
 
-    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop" output="screen"/>
+        <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop" output="screen"/>
 
 <!-- 	<node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" /> -->
 
